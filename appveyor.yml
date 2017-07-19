@@ -28,8 +28,8 @@ on_success:
   - git checkout master
   - git rm -rf .
   - xcopy ..\output . /E
-  # EDIT the origin of your repository - have to reset it here because AppVeyor pulls from SSH, but GitHub won't accept SSH pushes
-  - git remote set-url origin https://github.com/pothulapati/tarunpothulapati.github.io.git
+  # EDIT the origin of your repository - have to reset it here because AppVeyor pulls from SSH, but GitHub won't accept SSH pusheshttps://github.com/Pothulapati/tarunpothulapati-com.git
+  - git remote set-url origin https://github.com/pothulapati/tarunpothulapati-com.git
   - git add -A
   - git commit -a -m "Commit from AppVeyor"
   - git push
