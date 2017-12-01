@@ -48,7 +48,7 @@ I know its hard to make changes  and then run the wyam command then push to the 
 So,Let's Automate the process. We can use appveyor to read the input from a github branch, let it run wyam on it and then push the output to a github branch which has github pages setup on it.
 
 Looks Cool, Dosen't it? Here is the Appveyor script to set it up.
-<script src="https://gist.github.com/Pothulapati/2f4c6b0c8b7c0063df2586180ef2c362.js"></script>
+<script src="https://gist.github.com/Pothulapati/2f4c6b0c8b7c0063df2586180ef2c362"></script>
 
 Replace the 
 
