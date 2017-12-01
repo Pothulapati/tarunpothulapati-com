@@ -6,7 +6,7 @@ Title: Setting up a blog with Wyam and Github Pages
 
 ### Wyam
 
->[Wyam](https://wyam.io/) is a simple to use, highly modular, and extremely configurable static content generator that can be used to generate web sites, produce documentation, create ebooks, and much more.
+>[Wyam](https://wyam.io/) is a simplee to use, highly modular, and extremely configurable static content generator that can be used to generate web sites, produce documentation, create ebooks, and much more.
 
 It let's you convert your dynamic sites into static sites which can then be **freely** hosted on services like [Github Pages](https://pages.github.com/),[Netlify](https://www.netlify.com/). You can also convert Asp.net MVC sites,Razor Views,etc to static sites using Wyam.
 
