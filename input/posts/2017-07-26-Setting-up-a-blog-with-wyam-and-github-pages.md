@@ -49,7 +49,7 @@ It's 2017, We have put people on the moon, Can't we automate this process?
 So, Let's use appveyor to read the input from a github branch, let it run wyam on it and then push the output to a branch which has github pages setup on it.
 
 Looks Cool, Dosen't it? Here is the Appveyor script to set it up.
-<script src="https://gist.github.com/Pothulapati/2f4c6b0c8b7c0063df2586180ef2c362"></script>
+<script src="https://gist.github.com/Pothulapati/2f4c6b0c8b7c0063df2586180ef2c362.js"></script>
 
 Replace the ```$name$``` , ```$email$``` with corresponding details. You also need to setup an access token in the developer settings to let appveyor access your github repository.
 
