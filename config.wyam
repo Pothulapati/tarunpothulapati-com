@@ -8,3 +8,4 @@ Settings[Keys.Host] = "tarunpothulapati.com";
 Settings[BlogKeys.Title] = "Tarun Pothulapati";
 Settings[BlogKeys.Description] = "Tarun Pothulapati";
 Settings[BlogKeys.Intro] = "Hello!My Name is Tarun. I'am a C#.Net Developer By Heart, with Special interest in dotnet core,aspnet core and I'm also a Tech Enthusiast.";
+Settings[Keys.LinkRoot] = "/tarunpothulapati-coms";
