@@ -26,7 +26,7 @@ wyam new --recipe Blog
 ```
 Now you can see the following files in the folder.
 
-![](../images/directory.png)
+![](/images/directory.png)
 
 
 The input directory contains the content files.These files can be markdown files,razor files,etc. Links in the header on the homepage are added by directly adding files into the directory and for adding posts, markdown files are added directly into the posts folder.
