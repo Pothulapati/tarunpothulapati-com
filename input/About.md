@@ -1,4 +1,4 @@
-Title: About
+Title: about
 ---
 ## My Name is Tarun Pothulapati
 A site which predicts Engineering Entrance Examinations ranks and colleges here in Telangana,India based on students marks and reservation.
