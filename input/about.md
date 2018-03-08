@@ -1,8 +1,8 @@
-Title: about
+Title: Tarun Pothulapati
 ---
 My resume can be found [here](https://drive.google.com/file/d/1_59nnsxicU_e9v3B0eI7JnXl0ooNNHtV/view)
 
-#Projects
+# Projects
 
 ## [Ts Eamcet Predictor](http://www.tsep.in)
 A site which predicts Engineering Entrance Examinations ranks and colleges here in Telangana,India based on students marks and reservation.
