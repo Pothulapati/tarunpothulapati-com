@@ -25,7 +25,6 @@ on_success:
   - git config --global user.email tarunpothulapati@outlook.com
   - git config --global user.name pothulapati
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - git commit -a -m "Commit to source from appveyor"
   - git checkout master
   - xcopy /y ..\output . /E
   # EDIT the origin of your repository - have to reset it here because AppVeyor pulls from SSH, but GitHub won't accept SSH pusheshttps://github.com/Pothulapati/tarunpothulapati-com.git
