@@ -1,4 +1,4 @@
-Title: Tarun Pothulapati
+Title: About
 ---
 My resume can be found [here](https://drive.google.com/file/d/1_59nnsxicU_e9v3B0eI7JnXl0ooNNHtV/view)
 
