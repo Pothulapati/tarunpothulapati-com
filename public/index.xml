@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tarun Pothulapati</title>
+    <link>http://www.tarunpothulapati.com/</link>
+    <description>Recent content on Tarun Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.tarunpothulapati.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://www.tarunpothulapati.com/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.tarunpothulapati.com/about/</guid>
+      <description>Hey! My Name is Tarun Pothulapati, I&amp;rsquo;m a 3rd year undergraduate in Hyderabad, India.
+I&amp;rsquo;m a Technology Enthusiast. Interested in Distributed Systems, Golang, .Net Core. Passionate about handling systems at scale. Always willing to know and learn more about the internals of Systems, Infra, Networks, etc. I believe in a learn-it-all mindset as it keeps me grounded and enthusiastic about learning.
+My resume can be found here
+Feel free to reach me out on oppurtunities, suggestions &amp;amp; feedback.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://www.tarunpothulapati.com/posts/m-first-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.tarunpothulapati.com/posts/m-first-post/</guid>
+      <description>Hey Waddup Two times a year the drivers team at 10gen gathers together for a face to face meeting to spend time together working on issues and setting forth our goals for the upcoming six months. In September 2012 we all converged on New York City for the second ever driver days. This time we split up into teams for a hack-a-thon. As maintainers of drivers &amp;amp; integrations in over a dozen different languages while we are on the same team, it isn’t often that we actually work together on the same codebase.</description>
+    </item>
+    
+  </channel>
+</rss>

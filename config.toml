@@ -1,0 +1,35 @@
+baseurl = "http://www.tarunpothulapati.com" # Hostname (and path) to the root.
+languageCode = "en-us"
+title = "Tarun Pothulapati" # Site title.
+theme = "hyde-hyde" # Set the theme.
+
+[params]
+description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Golang, .Net Core."
+
+[taxonomies]
+   tag = "tags"
+
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+
+[[menu.main]]
+    name = "Projects"
+    identifier = "projects"
+    weight = 200
+    url = "/projects/"
+
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 300
+    url = "/about/"
+
+ 
+[params.social]
+    github = "pothulapati"
+    linkedin = "tpothulapati"
+    email = "tarunpothulapati@outlook.com"
+    twitter = "pothulapati"
