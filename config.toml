@@ -2,6 +2,7 @@ baseurl = "http://www.tarunpothulapati.com" # Hostname (and path) to the root.
 languageCode = "en-us"
 title = "Tarun Pothulapati" # Site title.
 theme = "hyde-hyde" # Set the theme.
+googleanalytics = "UA-132006662-1"
 
 [params]
 description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Golang, .Net Core."
