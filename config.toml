@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Tarun Pothulapati" # Site title.
 theme = "hyde-hyde" # Set the theme.
 googleanalytics = "UA-132006662-1"
+disqusShortname = "www-tarunpothulapati-com"
 
 [params]
 description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Golang, .Net Core."

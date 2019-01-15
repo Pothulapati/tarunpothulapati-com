@@ -8,6 +8,7 @@
 {{ end }}
 
 {{ define "footer" }}
+{{ template "_internal/disqus.html" . }}
     {{ partial "page-single/footer.html" . }}
     {{ partial "page-single/variables-deinit.html" . }}
 {{ end }}
