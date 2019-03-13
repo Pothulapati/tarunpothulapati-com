@@ -2,6 +2,11 @@
 title: Projects
 ---
 
+## [Azure Service Fabric Mesh Controller for kubernetes](https://github.com/Pothulapati/SFMesh-Controller)
+A Kubernetes Controller to create and manage your Service Fabric Mesh resources right from the Kubernetes
+Control Plane.
+Implemented using CRD’s (Custom Resouce Definations), So as to offload your micro-service workloads to Service Fabric Mesh.
+
 ## [Vardhaman College Chatbot](https://github.com/utorai/vardhamanbot)
 Developed a chatbot which helps students keep track of their GPA, Attendance, Schedule and keep them with updated college related information.
 Vardhaman Bot is available on Facebook Messenger, Slack and on a website.
