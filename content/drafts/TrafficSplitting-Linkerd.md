@@ -15,7 +15,7 @@ Linkerd 2.4 comes with Traffic Splitting functionality, which allows users to sp
 
 As we know, A service mesh is divided into a Control-Plane and Data Plane(proxies). Whenever the proxies have to perform a request, they get the config from the **destination** component in the control plane.
 
-![](/static/images/control-plane-5c1c76a5-5431-4134-b08c-0f3bef57fcac.png)
+![](/images/control-plane-5c1c76a5-5431-4134-b08c-0f3bef57fcac.png)
 
 The destination component of the control plane makes sure, it watches for [TrafficSplit](https://github.com/deislabs/smi-spec/blob/master/traffic-split.md) and other CR's and pushes the right config for proxies to folllow. Rather than having it's own configuration format, Linkerd follows the [SMI spec](http://www.smi-spec.io), which aims to have a unified, generalised configuration model for service meshes (just like ingress, CRI, etc in k8s). 
 
@@ -67,15 +67,15 @@ The productpage is the homepage of the application and it can be viewed by runni
 Now, checking `localhost:9080` would show you a product page, with a list of reviews on the right. Those reviews is being loaded from the `reviews` service which is backed by the 3 reviews pods. As requests are being sent to productpage, it sends to reviews service which randomly sends requests to one of the 3 review pods, as they are of different versions, the difference can be seen as,
  v1 (with no stars) 
 
-![](/static/images/v1-972e7ce4-8e3a-43b6-85f7-e0df617b2724.png)
+![](/images/v1-972e7ce4-8e3a-43b6-85f7-e0df617b2724.png)
 
 v2 (with orange stars)
 
-![](/static/images/v2-c3bcd0df-5d6e-4e4e-b4ba-f19e2cda762b.png)
+![](/images/v2-c3bcd0df-5d6e-4e4e-b4ba-f19e2cda762b.png)
 
 v3 (with black stars)
 
-![](/static/images/v3-9b0b281a-a442-43db-bf7e-ab49a0d8862b.png)
+![](/images/v3-9b0b281a-a442-43db-bf7e-ab49a0d8862b.png)
 
 Now, Let's have the reviews service, only split traffic to v2 and v3 pods. 
 
