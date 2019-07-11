@@ -1,7 +1,7 @@
 
 ---
 Title: Traffic Splitting in Linkerd using SMI
-date: 2017-07-26
+date: 2017-08-11
 tags: ["github-pages", "wyam", "static-site"]
 ---
 
@@ -116,7 +116,7 @@ two new services `reviews-v2` and `reviews-v3` are created that correspond to th
 
 As we can see now, we will have two new services,
 
-```bash
+```bashnccncnnc
 
     kubectl get svc
     NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
