@@ -7,39 +7,33 @@ tags: ["github-pages", "wyam", "static-site"]
 
 # Traffic Splitting in Linkerd
 
-Linkerd is a service mesh built for kubernetes and provides
+Linkerd is CNCF service mesh project for Kubernetes. Linkerd 2.4 introduces *traffic splitting* functionality, which allows users to split traffic destined for a particular service across multiple services. Traffic can be split based on the weight given for a particular service, or by percentage. This traffic splitting is useful for performing canary deploys and blue/green deploys, which can be useful for reducing risk when publishing new code to production — the push can be done gradually, and potentially rolled back if things go wrong.
 
-Linkerd 2.4 comes with Traffic Splitting functionality, which allows users to split traffic destined to a particular service to multiple services. Traffic is split based on the weight given for a particular service (in the case of linkerd), percentages can also be used here. Traffic Splitting is useful for performing Canary Deployments, etc. 
+Without a service mesh, using just Kubernetes, you can partially accomplish traffic shifting with pure label flipping. However, the granularity of this appraoch is pretty coarse, especially for small deployments, since this must be done on a per-pod basis. Using Linkerd, the service mesh gives you fine-grained control by allowing you shift arbitrary portions of the traffic to whichever service you want, without changing any code.
+
+In this post, I'll walk you through an example of using Linkerd for traffic splitting on Istio's BookInfo example app.
 
 ## How is it done in Linkerd?
 
-As we know, A service mesh is divided into a Control-Plane and Data Plane(proxies). Whenever the proxies have to perform a request, they get the config from the **destination** component in the control plane.
+A service mesh is divided into control plane and data plane (proxy) components. In Linkerd, whenever the data plane proxies have to perform a request, they get the config from the **destination** component in the control plane.
 
 ![](/images/control-plane-5c1c76a5-5431-4134-b08c-0f3bef57fcac.png)
 
-The destination component of the control plane makes sure, it watches for [TrafficSplit](https://github.com/deislabs/smi-spec/blob/master/traffic-split.md) and other CR's and pushes the right config for proxies to folllow. Rather than having it's own configuration format, Linkerd follows the [SMI spec](http://www.smi-spec.io), which aims to have a unified, generalised configuration model for service meshes (just like ingress, CRI, etc in k8s). 
+The destination component of the control plane watches for changes in service mesh configuration (implemented as Kubernetes Custom Resource Definitions) and then pushes the right config for proxies to follow. Rather than introducing its own configuration format for traffic splitting, Linkerd follows the [SMI spec](http://www.smi-spec.io), which aims to provide a unified, generalized configuration model for service meshes (just like ingress, CRI, etc in Kubernetes).
 
 ## Demo
 
-First download the Linekrd `edge-19.6.4` by running 
+It's easy to try this out for yourself. First, download the Linkerd `2.4` by running `curl https://run.linkerd.io/install | sh` . Once that is done, Linkerd control plane can be installed in the Kubernetes cluster by running 
 
-```bash
-curl https://run.linkerd.io/install-edge | sh
-```
+`linkerd install | kubectl apply -f -`
 
-Once that is done, Linkerd Control plane can be installed in the kubernetes cluster by running 
+For this demo, let's use [Istio's BookInfo sample application](https://github.com/istio/istio/tree/master/samples/bookinfo), The bookinfo sample can be retrieved [here](https://istio.io/docs/setup/kubernetes/#downloading-the-release).
 
-```bash
-linkerd install | kubectl apply -f -
-```
+Next, the Linkerd data plane proxies have to be injected into each pod's manifest, and this has to be applied to the cluster. This can be done by running 
 
-For this demo, let's use [Istio's BookInfo sample application](https://github.com/istio/istio/tree/master/samples/bookinfo), The bookinfo sample can be retrieved [here](https://istio.io/docs/setup/kubernetes/#downloading-the-release),
+`linkerd inject ./samples/bookinfo/platform/kube/bookinfo.yaml | kubectl apply -f -`
 
-Next, the linkerd proxies have to be injected into each pod's manifest and this has to be applied to the cluster. This can be done by running 
-
-`linkerd inject ./samples/bookinfo/platform/kube/bookinfo.yaml | kubectl apply -f -` 
-
-You can see the the following pods running in your cluster i.e 3 review page, 1 product page,1 details page pods.
+You can see the the following pods running in your cluster: 3 review page pods, 1 product page pod, and 1 details page pod.
 
     kubectl get pods
     NAME                              READY   STATUS    RESTARTS   AGE
@@ -64,7 +58,8 @@ The productpage is the homepage of the application and it can be viewed by runni
 
     kubectl port-forward svc/productpage 9080:9080
 
-Now, checking `localhost:9080` would show you a product page, with a list of reviews on the right. Those reviews is being loaded from the `reviews` service which is backed by the 3 reviews pods. As requests are being sent to productpage, it sends to reviews service which randomly sends requests to one of the 3 review pods, as they are of different versions, the difference can be seen as,
+Now, checking `localhost:9080` would show you a product page, with a list of reviews on the right. Those reviews are being loaded from the `reviews` service which is backed by the 3 reviews pods. The requests to the reviews service are randomly sent to one of the 3 review pods, as they represent different versions of this service. The three different versions provide different output:
+
  v1 (with no stars) 
 
 ![](/images/v1-972e7ce4-8e3a-43b6-85f7-e0df617b2724.png)
@@ -77,11 +72,9 @@ v3 (with black stars)
 
 ![](/images/v3-9b0b281a-a442-43db-bf7e-ab49a0d8862b.png)
 
-Now, Let's have the reviews service, only split traffic to v2 and v3 pods. 
+Now, let's have the reviews service only split traffic to v2 and v3 versions of the application. 
 
-In Linkerd, For Traffic Split, Services are used as the core objects, so we need two new reviews services that correspond to the pods.
-
-two new services `reviews-v2` and `reviews-v3` are created that correspond to the v2 and v3 pods respectively by applying the following YAML.
+In Linkerd's approach to traffic splitting, services are used as the core primitives. This, we need to create two new review services that correspond to the pods. In the following manifest, two new services `reviews-v2` and `reviews-v3` are created that correspond to the v2 and v3 pods respectively by using label selectors:
 
 ```yaml
 
@@ -114,9 +107,9 @@ two new services `reviews-v2` and `reviews-v3` are created that correspond to th
         targetPort: 9080
 ```
 
-As we can see now, we will have two new services,
+There are two new services created
 
-```bashnccncnnc
+```bash
 
     kubectl get svc
     NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
@@ -129,7 +122,7 @@ As we can see now, we will have two new services,
     reviews-v3    ClusterIP   10.96.125.224    <none>        9080/TCP   7s
 ```
 
-Now, Let's apply the TrafficSplit CRD which makes the requests to `reviews` service split between `reviews-v` and `reviews-v2` 
+Now, let's apply the SMI TrafficSplit CRD, which makes the requests to reviews service split between reviews-v and reviews-v2 : 
 
 ```yaml
 
@@ -146,6 +139,12 @@ Now, Let's apply the TrafficSplit CRD which makes the requests to `reviews` serv
         weight: 500m
 ```
 
-This specified the Linkerd Control Plane that whenever there is a request to `reviews` service on a proxy, split them across the `reviews-v2` and `reviews-v3` based on the weights provided.
+This tells Linkerd's control plane that whenever there are requests to the `reviews` service, to split them across the `reviews-v2` and `reviews-v3` based on the weights provided. (In this case, a 50-50 split.)
 
-So, now if the product page is opened, we can only see the reviews with red or black stars equally which means the traffic is split equally (as equal weights are provided)
+If we now go back to our product page, we can only see the reviews with red or black stars appear on each refresh, and they appear equally—which means the traffic is split equally, as equal weights are provided in the config. Success!
+
+## Conclusion
+
+Linkerd uses Kubernetes's *Service* abstraction as the core mechanism for traffic splitting. I think is a good choice, as services are not physical resources but a routing mechanism. By comparison, Istio's approach introduces a new level of abstraction based on VirtualServices which requires some learning! By keeping it to the Kubernetes primitives that we know and love, Linkerd makes this experience very smooth and simple.
+
+In practice, we wouldn't want to shift traffic without also monitoring success rate—if we're sending new traffic to a service that is failing, we probably want to shift traffic back to the original version! This is where tools like [Flagger](https://github.com/weaveworks/flagger) come in! Flagger combines traffic shifting and L7 metrics to do canary deployments, etc. It will slowly increase the weight to the newer version, based on the metrics, and if there is any problem (e.g. failed requests), it would roll back. If not it will continue increasing the weight until all the requests are routed to the newer version. A demo of Linkerd with Flagger can be seen [here](https://www.youtube.com/watch?v=nlg3yiCNmY8). This is the promise of SMI: tools like Flagger can be built on top of [SMI](https://smi-spec.io/) and they work on all the meshes that implement it.
