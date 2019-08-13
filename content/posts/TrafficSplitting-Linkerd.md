@@ -35,6 +35,7 @@ Next, the Linkerd data plane proxies have to be injected into each pod's manifes
 
 You can see the the following pods running in your cluster: 3 review page pods, 1 product page pod, and 1 details page pod.
 
+```
     kubectl get pods
     NAME                              READY   STATUS    RESTARTS   AGE
     details-v1-9f59fd579-ncgkg        2/2     Running   0          11m
@@ -44,20 +45,24 @@ You can see the the following pods running in your cluster: 3 review page pods, 
     reviews-v2-756495d66-brfrr        2/2     Running   0          11m
     reviews-v3-7cdb64bdfd-z2m4q       2/2     Running   0          11m
 
+```
 with the following services.
 
-    kubectl get svc
+```python
+ kubectl get svc
     NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
     details       ClusterIP   10.96.115.62    <none>        9080/TCP   13m
     kubernetes    ClusterIP   10.96.0.1       <none>        443/TCP    7h56m
     productpage   ClusterIP   10.109.31.20    <none>        9080/TCP   13m
     ratings       ClusterIP   10.101.57.168   <none>        9080/TCP   13m
     reviews       ClusterIP   10.105.52.139   <none>        9080/TCP   13m
+```
 
 The productpage is the homepage of the application and it can be viewed by running 
 
+```
     kubectl port-forward svc/productpage 9080:9080
-
+```
 Now, checking `localhost:9080` would show you a product page, with a list of reviews on the right. Those reviews are being loaded from the `reviews` service which is backed by the 3 reviews pods. The requests to the reviews service are randomly sent to one of the 3 review pods, as they represent different versions of this service. The three different versions provide different output:
 
  v1 (with no stars) 
@@ -74,43 +79,14 @@ v3 (with black stars)
 
 Now, let's have the reviews service only split traffic to v2 and v3 versions of the application. 
 
+
 In Linkerd's approach to traffic splitting, services are used as the core primitives. This, we need to create two new review services that correspond to the pods. In the following manifest, two new services `reviews-v2` and `reviews-v3` are created that correspond to the v2 and v3 pods respectively by using label selectors:
 
-```yaml
-
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: reviews-v2
-    spec:
-      selector:
-        app: reviews
-        version: v2
-      ports:
-      - protocol: TCP
-        port: 9080
-        targetPort: 9080
-    
-    ---
-    
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: reviews-v3
-    spec:
-      selector:
-        app: reviews
-        version: v3
-      ports:
-      - protocol: TCP
-        port: 9080
-        targetPort: 9080
-```
+<script src="https://gist.github.com/Pothulapati/d3f1c857518ee36e23ef4e535543bdb7.js"></script>
 
 There are two new services created
 
-```bash
-
+```
     kubectl get svc
     NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
     details       ClusterIP   10.96.115.62     <none>        9080/TCP   35m
@@ -124,20 +100,7 @@ There are two new services created
 
 Now, let's apply the SMI TrafficSplit CRD, which makes the requests to reviews service split between reviews-v and reviews-v2 : 
 
-```yaml
-
-    apiVersion: split.smi-spec.io/v1alpha1
-    kind: TrafficSplit
-    metadata:
-      name: reviews-rollout
-    spec:
-      service: reviews
-      backends:
-      - service: reviews-v2
-        weight: 500m
-      - service: reviews-v3
-        weight: 500m
-```
+<script src="https://gist.github.com/Pothulapati/0baa25c8fa5f83ca6c32a194707b71e8.js"></script>
 
 This tells Linkerd's control plane that whenever there are requests to the `reviews` service, to split them across the `reviews-v2` and `reviews-v3` based on the weights provided. (In this case, a 50-50 split.)
 
