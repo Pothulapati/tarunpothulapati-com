@@ -19,7 +19,7 @@ A service mesh is divided into control plane and data plane (proxy) components. 
 
 ![](/images/control-plane-5c1c76a5-5431-4134-b08c-0f3bef57fcac.png)
 
-The destination component of the control plane watches for changes in service mesh configuration (implemented as Kubernetes Custom Resource Definitions) and then pushes the right config for proxies to follow. Rather than introducing its own configuration format for traffic splitting, Linkerd follows the [SMI spec](http://www.smi-spec.io), which aims to provide a unified, generalized configuration model for service meshes (just like ingress, CRI, etc in Kubernetes).
+The destination component of the control plane watches for changes in service mesh configuration (implemented as Kubernetes Custom Resource Definitions) and then pushes the right config for proxies to follow. Rather than introducing its own configuration format for traffic splitting, Linkerd follows the [SMI spec](https://www.smi-spec.io), which aims to provide a unified, generalized configuration model for service meshes (just like ingress, CRI, etc in Kubernetes).
 
 ## Demo
 
