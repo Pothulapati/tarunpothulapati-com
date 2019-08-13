@@ -1,8 +1,8 @@
 
 ---
 Title: Traffic Splitting in Linkerd using SMI
-date: 2017-08-11
-tags: ["github-pages", "wyam", "static-site"]
+date: 2019-08-13
+tags: ["linkerd", "smi", "service-mesh", "traffic"]
 ---
 
 # Traffic Splitting in Linkerd
