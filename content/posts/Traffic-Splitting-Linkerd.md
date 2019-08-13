@@ -100,7 +100,7 @@ There are two new services created
 
 Now, let's apply the SMI TrafficSplit CRD, which makes the requests to reviews service split between reviews-v and reviews-v2 : 
 
-<script src="https://gist.github.com/Pothulapati/0baa25c8fa5f83ca6c32a194707b71e8.js"></script>
+<script src="https://gist.github.com/Pothulapati/c2b8c33c19f1d945f511c2d6ce16b28d.js"></script>
 
 This tells Linkerd's control plane that whenever there are requests to the `reviews` service, to split them across the `reviews-v2` and `reviews-v3` based on the weights provided. (In this case, a 50-50 split.)
 
