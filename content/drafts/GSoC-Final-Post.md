@@ -4,7 +4,6 @@ date: 2019-08-21
 tags: ["gsoc", "linkerd", "service-mesh", "smi", "metrics"]
 ---
 
-
 # Google Summer of Code Internship
 
 
@@ -14,6 +13,7 @@ tags: ["gsoc", "linkerd", "service-mesh", "smi", "metrics"]
 
 Total Pull Requests Created: 18
 1. [linkerd/linkerd2#3194](https://github.com/linkerd/linkerd2/pull/3194) - Check for Namespace level config override annotations
+
 2. [linkerd/linkerd2#3193](https://github.com/linkerd/linkerd2/pull/3193) - Setting SuccessfulJobHistoryLimit to 0 for CronJobs
 3. [linkerd/linkerd2#3153](https://github.com/linkerd/linkerd2/pull/3153) - replace extensions/v1beta1 to apps/v1beta1
 4. [linkerd/linkerd2#3152](https://github.com/linkerd/linkerd2/pull/3152) - Add Node Selectors to select only linux nodes
