@@ -1,3 +1,10 @@
+---
+Title: My Google Summer of Code journey
+date: 2019-08-21
+tags: ["gsoc", "linkerd", "service-mesh", "smi", "metrics"]
+---
+
+
 # Google Summer of Code Internship
 
 
