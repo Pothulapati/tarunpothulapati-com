@@ -12,8 +12,8 @@ tags: ["gsoc", "linkerd", "service-mesh", "smi", "metrics"]
 **Repository: linkerd2**
 
 Total Pull Requests Created: 18
-1. [linkerd/linkerd2#3194](https://github.com/linkerd/linkerd2/pull/3194) - Check for Namespace level config override annotations
 
+1. [linkerd/linkerd2#3194](https://github.com/linkerd/linkerd2/pull/3194) - Check for Namespace level config override annotations
 2. [linkerd/linkerd2#3193](https://github.com/linkerd/linkerd2/pull/3193) - Setting SuccessfulJobHistoryLimit to 0 for CronJobs
 3. [linkerd/linkerd2#3153](https://github.com/linkerd/linkerd2/pull/3153) - replace extensions/v1beta1 to apps/v1beta1
 4. [linkerd/linkerd2#3152](https://github.com/linkerd/linkerd2/pull/3152) - Add Node Selectors to select only linux nodes
@@ -33,6 +33,7 @@ Total Pull Requests Created: 18
 18. [linkerd/linkerd2#2292](https://github.com/linkerd/linkerd2/pull/2292) - Ignoring resources with empty kind field.
 
 Total Pull Requests Reviewed: 3
+
 1. [linkerd/linkerd2#3266](https://github.com/linkerd/linkerd2/pull/3266) - Fix integration test
 2. [linkerd/linkerd2#3039](https://github.com/linkerd/linkerd2/pull/3039) - Fix linkerd inject url handling
 3. [linkerd/linkerd2#3032](https://github.com/linkerd/linkerd2/pull/3032) - Add release notes for stable-2.4.0
@@ -41,6 +42,7 @@ Total Pull Requests Reviewed: 3
 **Repository: rfc**
 
 Total Pull Requests Created: 1
+
 1. [linkerd/rfc#3](https://github.com/linkerd/rfc/pull/3) - Obsevarbility through GraphQL
 
 
@@ -49,6 +51,7 @@ Total Pull Requests Created: 1
 **Repository: smi-metrics**
 
 Total Pull Requests Created: 12
+
 1. [deislabs/smi-metrics#31](https://github.com/deislabs/smi-metrics/pull/31) - Release automation through CircleCI
 2. [deislabs/smi-metrics#30](https://github.com/deislabs/smi-metrics/pull/30) - smi metrics istio installation through helm
 3. [deislabs/smi-metrics#25](https://github.com/deislabs/smi-metrics/pull/25) - Istio Support for SMI-Metrics
@@ -63,6 +66,7 @@ Total Pull Requests Created: 12
 12. [deislabs/smi-metrics#5](https://github.com/deislabs/smi-metrics/pull/5) - Remove NetRC dependency as the repo's are public
 
 Total Issues Opened: 11
+
 1. [deislabs/smi-metrics#28](https://github.com/deislabs/smi-metrics/issues/28) - Add Tests for Istio pkg
 2. [deislabs/smi-metrics#27](https://github.com/deislabs/smi-metrics/issues/27) - Update Istio docs with configuration options through helm
 3. [deislabs/smi-metrics#26](https://github.com/deislabs/smi-metrics/issues/26) - Template response latency queries.
