@@ -2,7 +2,7 @@
 ---
 Title: Traffic Splitting in Linkerd using SMI
 date: 2019-08-13
-tags: ["linkerd", "smi", "service-mesh", "traffic"]
+tags: ["linkerd", "smi", "service-mesh", "gsoc", "traffic"]
 ---
 
 # Traffic Splitting in Linkerd
