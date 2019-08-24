@@ -82,7 +82,7 @@ Now, let's have the reviews service only split traffic to v2 and v3 versions of 
 
 In Linkerd's approach to traffic splitting, services are used as the core primitives. This, we need to create two new review services that correspond to the pods. In the following manifest, two new services `reviews-v2` and `reviews-v3` are created that correspond to the v2 and v3 pods respectively by using label selectors:
 
-<script src="https://gist.github.com/Pothulapati/d3f1c857518ee36e23ef4e535543bdb7.js"></script>
+<script src="https://gist.github.com/Pothulapati/e94acb41d2e489561ae366bb2340552e.js"></script>
 
 There are two new services created
 
@@ -98,7 +98,7 @@ There are two new services created
     reviews-v3    ClusterIP   10.96.125.224    <none>        9080/TCP   7s
 ```
 
-Now, let's apply the SMI TrafficSplit CRD, which makes the requests to reviews service split between reviews-v and reviews-v2 : 
+Now, let's apply the SMI TrafficSplit CRD, which makes the requests to reviews service split between reviews-v3 and reviews-v2 : 
 
 <script src="https://gist.github.com/Pothulapati/c2b8c33c19f1d945f511c2d6ce16b28d.js"></script>
 
