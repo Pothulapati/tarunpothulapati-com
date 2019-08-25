@@ -4,8 +4,6 @@ date: 2019-08-23
 tags: ["istio", "smi", "service-mesh", "gsoc", "traffic"]
 ---
 
-# SMI-Metrics with Istio
-
 As a part of my GSoC 2019 internship with Linkerd, I was tasked to add support for Istio on SMI-Metrics and also to add basic things to the repository like release automation, etc.
 
 [SMI-Metrics](https://github.com/deislabs/smi-metrics) aims to have a common API to consume metrics from Service Meshes. Tools like flagger can be built on top of SMI, without having to use mesh specific API's. This creates a standardisation for Service Mesh metrics.

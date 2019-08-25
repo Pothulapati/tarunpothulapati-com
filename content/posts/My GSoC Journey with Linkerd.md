@@ -4,9 +4,6 @@ date: 2019-08-24
 tags: ["linkerd", "smi", "service-mesh", "gsoc", "traffic", "istio"]
 ---
 
-
-## My GSoC Journey with Linkerd
-
 My GSoC Internship started with a different aim i.e to write a common GraphQL API to query linkerd metrics and my initial proposal was oriented towards it. I worked on the GraphQL spec along with the documentaion and relevant rfc's for it. By the end of community bonding period, we had a concrete proposal and I also got a scholarship to attend KubeCon + CloudNativeCon 2019 EU in Barcelona and get to meet my mentor and the whole Linkerd team. We had great fun discussing and clarifying my doubts regarding my internship and the linkerd project as a whole!
 
 But then some companies in the service mesh space like Linkerd, Azure, Kinvolk, solo.io etc announced [Service Mesh Interface](https://smi-spec.io) which aims to provide a common interface for whole service mesh technologies so that common tools can be built on top of it. This seemed like a great platform to build the graphql API. Then I discussed with my mentor, linkerd team and the other SMI folks and decided that it would be best to spend my time on SMI-metrics which aims to solve a similar problem but on a bigger scale i.e for service meshes on whole.
