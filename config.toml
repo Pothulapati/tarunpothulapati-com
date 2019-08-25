@@ -29,7 +29,9 @@ customCSS = ["css/custom.css"]
 customJS = ["js/custom.js"]
 gopher = "" # used in 404 template ( Generator: https://gopherize.me )
 
-
+[recent_posts]
+title = ""                            # default: "Recent Posts"
+length = 4                            # default: 5
 
 [params.settings]
 # date & time format: https://golang.org/pkg/time/
