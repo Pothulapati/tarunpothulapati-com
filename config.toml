@@ -20,7 +20,7 @@ enableEmoji = true
 defaultContentLanguage = "en"
 
 [params.info]
-description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Golang, .Net Core."
+description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Kubernetes, Golang"
 title404 = "Nothing's here!"
 
 [params.assets]
