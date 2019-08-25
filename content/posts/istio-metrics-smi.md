@@ -8,17 +8,17 @@ tags: ["istio", "smi", "service-mesh", "gsoc", "traffic"]
 
 As a part of my GSoC 2019 internship with Linkerd, I was tasked to add support for Istio on SMI-Metrics and also to add basic things to the repository like release automation, etc.
 
-SMI-Metrics aims to have a common API to consume metrics from Service Meshes. Tools like flagger can be built on top of SMI, without having to use mesh specific API's. This creates a standardisation for Service Mesh metrics.
+[SMI-Metrics](https://github.com/deislabs/smi-metrics) aims to have a common API to consume metrics from Service Meshes. Tools like flagger can be built on top of SMI, without having to use mesh specific API's. This creates a standardisation for Service Mesh metrics.
 
-The SMI-Metrics is an extension API Server that users can install on their k8s cluster which then talks to the service mesh specific API's and returns metrics in a standard format as per the spec. As the spec evolves, the implmenetaions can also improve too.
+The SMI-Metrics is an [extension API Server](https://kubernetes.io/docs/tasks/access-kubernetes-api/setup-extension-api-server/) that users can install on their k8s cluster which then talks to the service mesh specific API's and returns metrics in a standard format as per the [SMI spec](https://github.com/deislabs/smi-spec/blob/master/traffic-metrics.md).
 
 As of `v0.2.0`, the repository supports both Linkerd and Istio.
 
 ## Istio Support
 
-Istio has a very pluggable way of metrics i.e metrics can be added dynamically by submitting custom resources i.e Handler, Instances and Rules and Istio sends those metrics to prometheus in real time. More on this [here](https://istio.io/docs/tasks/telemetry/metrics/collecting-metrics/)
+Istio has a pluggable way of metrics i.e metrics can be added dynamically by submitting custom resources i.e Handler, Instances and Rules and Istio sends those metrics to prometheus in real time. More on this [here](https://istio.io/docs/tasks/telemetry/metrics/collecting-metrics/)
 
-Istio installation of SMI works by installing some handler and isntances to make Istio send metrics that involve the labels i.e kind, etc needed by SMI and then reading those metrics from prometheus whenever queries happen.
+Istio support of SMI works by installing some handler and isntances that make Istio send metrics that involve the labels i.e kind, etc needed by SMI and then reading those metrics from prometheus whenever query requests come in.
 
 ### Demo
 
@@ -348,8 +348,8 @@ tarun@tarun-Inspiron-5559 ~/w/smi-metrics> kubectl get --raw /apis/metrics.smi-s
 }
 ```
 
-The above shows the `edges` from `web`, i.e inbound and outbound deployments and the respective golden metrics of the corresponding edges.
+The above response shows the `edges` from `web`, i.e inbound and outbound requests from deployments and the respective golden metrics for the corresponding edges.
 
 The same queries can be done for different kinds of resources i.e pods, namespaces, daemonsets, etc as specified in the [smi-spec](https://github.com/deislabs/smi-spec/blob/master/traffic-metrics.md)
 
-Isito support was added pretty recently. Feel free to try out and submit feedback/issues. :) 
+Isito support was added pretty recently. Feel free to try out and submit feedback/issues. :smiley:
