@@ -4,3 +4,6 @@
 [submodule "themes/basics"]
 	path = themes/basics
 	url = https://github.com/arjunkrishnababu96/basics.git
+[submodule "themes/minimo"]
+	path = themes/minimo
+	url = https://github.com/MunifTanjim/minimo.git

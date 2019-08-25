@@ -1,36 +1,106 @@
-baseurl = "http://www.tarunpothulapati.com" # Hostname (and path) to the root.
-languageCode = "en-us"
-title = "Tarun Pothulapati" # Site title.
-theme = "hyde-hyde" # Set the theme.
-googleanalytics = "UA-132006662-1"
+baseURL = "http://www.tarunpothulapati.com"
+title = "Tarun Pothulapati"
+
+theme = "minimo"
+
 disqusShortname = "www-tarunpothulapati-com"
-[params]
+googleAnalytics = "UA-132006662-1"
+
+Paginate = 5
+preserveTaxonomyNames = true
+
+enableRobotsTXT = true # generate robots.txt
+
+# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
+#pygmentsCodefences = true
+
+enableEmoji = true
+
+# Missing translations will default to this content language
+defaultContentLanguage = "en"
+
+[params.info]
 description = "Technology Enthusiast. Student. Passionate about Distributed Systems, Cloud, Golang, .Net Core."
+title404 = "Nothing's here!"
+
+[params.assets]
+favicon = "favicon.ico"
+customCSS = ["css/custom.css"]
+customJS = ["js/custom.js"]
+gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+
+
+
+[params.settings]
+# date & time format: https://golang.org/pkg/time/
+dateFormat = "2006, Jan 02"
+listDateFormat = "2006, Jan 02"
+archiveDateFormat = "Jan 02"
+hideEntryNavigation = ["page"] # boolean / array of sections
+hideEntryMeta = ["page"] # boolean / array of sections
+showReadingTime = true
+showLastmod = true
+taxonomyCloudShuffle = true
+accentColor = "#ffcd00"
+hideMainMenu = false
+rtl = false
+
+[params.sidebar]
+enable = false
+
+[params.widgets]
+header = ["breadcrumbs"]
+homepage = ["recent_posts"]
+sidebar = ["about",]
+footer = ["social_menu"]
+
+[params.social]
+email = "tarunpothulapati@outlook.com"
+facebook = "tarunpothulapati"
+github = "pothulapati"
+gitlab = "pothulapati"
+linkedin = "tpothulapati"
+twitter = "pothulapati"
+
+[params.comments]
+enable = true
+
+[params.comments.staticman]
+enable = false
 
 [taxonomies]
-   tag = "tags"
+author = "authors"
+category = "categories"
+series = "series"
+tag = "tags"
+
+[languages]
+# edit this block for your own language
+[languages.en]
+lang = "en"
+languageName = "English"
+weight = 1
+
+[[menu.main]]
+    name = "Home"
+    identifier = "home"
+    weight = 100
+    url = "/"
 
 [[menu.main]]
     name = "Posts"
-    weight = 100
+    weight = 200
     identifier = "posts"
     url = "/posts/"
 
 [[menu.main]]
     name = "Projects"
     identifier = "projects"
-    weight = 200
+    weight = 300
     url = "/projects/"
 
 [[menu.main]]
     name = "About"
     identifier = "about"
-    weight = 300
+    weight = 400
     url = "/about/"
-
- 
-[params.social]
-    github = "pothulapati"
-    linkedin = "tpothulapati"
-    email = "tarunpothulapati@outlook.com"
-    twitter = "pothulapati"
