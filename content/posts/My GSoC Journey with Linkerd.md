@@ -10,7 +10,7 @@ But then some companies/projects in the service mesh space like Linkerd, Azure, 
 
 The initial work was to make the smi-metrics API Server support more service meshes like [Istio](https://istio.io) and [Consul Connect](https://learn.hashicorp.com/consul). As this work can be a bit hectic and required learning a lot of things specific to those meshes. My mentor suggested me to continue my contributions on Linkerd while also working on SMI-metrics. So, that I don't get struck on one thing.
 
-So, My GSoC work is divied into my contributions to SMI-metrics and also the Linkerd project.
+So, My GSoC work is divided into my contributions to SMI-metrics and also the Linkerd project.
 
 ## SMI-Metrics
 
