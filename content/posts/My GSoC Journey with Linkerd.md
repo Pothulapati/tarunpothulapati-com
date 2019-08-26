@@ -32,6 +32,6 @@ My contributions to both Linkerd and SMI-metric repositories can be found [here]
 
 I really had a great time working with the Linkerd team especially Thomas (my mentor). Their struggle for simplicity and ultralight-weight service mesh can be seen in each and every PR. The team definitely deserves a huge win and we are already seeing that happen :wink:. They really own the project and make sure all the incoming PR's follow standards. I got to learn a lot from them. Thomas is a great mentor and always gives me long sighted suggestions, insights and also fun tech rants :p . I definitely can't ask for a better mentor. Thanks to Ivan, Alex, Alejandro, Andrew for unblocking me wherever possible and being friendly. :heart:
 
-Special thanks to William, for the hospitaly at the Team dinner where I felt a bit awkward and alone :stuck_out_tongue_closed_eyes: . I will remember that for a long time.
+Special thanks to William, for the hospitality at the Team dinner where I felt a bit awkward and alone :stuck_out_tongue_closed_eyes: . I will remember that for a long time.
 
 Linkerd team is a dream team, and it would be really sad to not continue my contributions. So, I will be continuing my contributions to Linkerd and will be taking up the work to make Tracing a first class component(like prometheus and grafana) in Linkerd. :smiley:
