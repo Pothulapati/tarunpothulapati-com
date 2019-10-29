@@ -1,6 +1,6 @@
 ---
 Title: Tracing the Linkerd Control Plane
-date: 2019-10-29
+date: 2019-10-28
 tags: ["linkerd", "service-mesh", "distributed-tracing", "debugging"]
 ---
 
