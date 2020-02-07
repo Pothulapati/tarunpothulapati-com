@@ -2,6 +2,10 @@
 title: Projects
 ---
 
+## [Do**k**er](https://github.com/Pothulapati/doker)
+Do**k**er is a cli tool that provides a docker-cli experience but for a Kubernetes Cluster
+It allows users to manage Images and Containers on the Kubernetes nodes by running a daemonset which interacts with the docker daemon.
+
 ## [Azure Service Fabric Mesh Controller for kubernetes](https://github.com/Pothulapati/SFMesh-Controller)
 A Kubernetes Controller to create and manage your Service Fabric Mesh resources right from the Kubernetes
 Control Plane.
