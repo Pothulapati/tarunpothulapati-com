@@ -1,6 +1,6 @@
 ---
 Title: Jaeger integration with Linkerd
-date: 2012-02-28
+date: 2020-07-10
 tags: ["linkerd", "service-mesh", "distributed-tracing", "addons"]
 ---
 
